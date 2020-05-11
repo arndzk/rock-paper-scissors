@@ -9,13 +9,60 @@
     <script>
         const rpsArray = ["Rock", "Paper", "Scissors"];
         let computerSelection;
+        let playerSelection = prompt(`Enter your play (Rock, Paper, Scissors): `);
 
         computerSelection = computerPlay();
-        console.log(computerSelection);
+
+        console.log(playRound(playerSelection, computerSelection));
 
         function computerPlay() {
             const randomPlay = rpsArray[Math.floor(Math.random() * rpsArray.length)];
             return randomPlay;
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = playerSelection.toLowerCase();
+
+            if(playerSelection == "rock" && computerSelection == "Rock") {
+                const result = `Tie! You both chose ${computerSelection}!`;
+                return result;
+            }
+            else if(playerSelection == "rock" && computerSelection == "Paper") {
+                const result = `You lose! ${computerSelection} beats Rock!`;
+                return result;
+            }
+            else if(playerSelection == "rock" && computerSelection == "Scissors") {
+                const result = `You win! Rock beats ${computerSelection}!`;
+                return result;
+            }
+            else if(playerSelection == "paper" && computerSelection == "Paper") {
+                const result = `Tie! You both chose ${computerSelection}!`;
+                return result;
+            }
+            else if(playerSelection == "paper" && computerSelection == "Scissors") {
+                const result = `You lose! ${computerSelection} beats Paper!`;
+                return result;
+            }
+            else if(playerSelection == "paper" && computerSelection == "Rock") {
+                const result = `You win! Paper beats ${computerSelection}!`;
+                return result;
+            }
+            else if(playerSelection == "scissors" && computerSelection == "Scissors") {
+                const result = `Tie! You both chose ${computerSelection}!`;
+                return result;
+            }
+            else if(playerSelection == "scissors" && computerSelection == "Rock") {
+                const result = `You lose! ${computerSelection} beats Scissors!`;
+                return result;
+            }
+            else if(playerSelection == "scissors" && computerSelection == "Paper") {
+                const result = `You win! Scissors beats ${computerSelection}!`;
+                return result;
+            }
+            else {
+                result = "Wrong input! Try again!";
+                return result;
+            }
         }
 
 
